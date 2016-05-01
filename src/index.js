@@ -8,9 +8,21 @@ export default class ReactHogan extends React.Component {
     return shallowCompare(this, nextProps, nextState)
   }
   
+  compileTemplate(template){
+    // lazy template compiling
+    if (this.compiledTemplate == template){
+      return this.compilationResult
+    }
+    this.compilationResult = hogan.compile(template)
+    this.compiledTemplate = template
+    return this.compilationResult
+  }
+  
   render() {
     const { template, context, ...props } = this.props
-    const compiledTemplate = hogan.compile(template)
+    if (!template) return false
+    
+    const compiledTemplate = this.compileTemplate(template)
     const __html = compiledTemplate.render(context)
     return (
       <div dangerouslySetInnerHTML={{__html}} {...props}/>

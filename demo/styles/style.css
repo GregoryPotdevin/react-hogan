@@ -1,3 +1,7 @@
+* { 
+  box-sizing: border-box;
+}
+
 body {
 	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 	font-size: 14px;
@@ -28,8 +32,20 @@ label {
   margin-bottom: 8px;
 }
 
+hr {
+  color: #DDD;
+  height: 1px;
+  margin: 12px 0;
+}
+
 pre.error {
   color: red;
+}
+
+.copyright {
+  color: #777;
+  width: 100%;
+  text-align: center;
 }
 
 .result {

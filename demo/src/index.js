@@ -97,6 +97,8 @@ let Demo = React.createClass({
           </div>
         </div>
       </div>
+      <hr />
+      <div className="copyright">Copyright © Gregory Potdevin, <a href="http://www.appcraft.fr/" target="__blank">Appcraft</a>, 2016. MIT Licensed.</div>
     </div>
   }
 })
