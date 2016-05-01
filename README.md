@@ -2,6 +2,7 @@
 
 [![Travis][build-badge]][build]
 [![npm package][npm-badge]][npm]
+[![Coveralls][coveralls-badge]][coveralls]
 
 React component wrapping Hogan.js. Can be used to render client-provided templates.
 
@@ -10,6 +11,9 @@ React component wrapping Hogan.js. Can be used to render client-provided templat
 
 [npm-badge]: https://img.shields.io/npm/v/react-hogan.svg?style=flat-square
 [npm]: https://www.npmjs.org/package/react-hogan
+
+[coveralls-badge]: https://img.shields.io/coveralls/GregoryPotdevin/react-hogan/master.svg?style=flat-square
+[coveralls]: https://coveralls.io/github/GregoryPotdevin/react-hogan
 
 ## Why ??
 
