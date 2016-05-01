@@ -15,7 +15,8 @@
     "clean": "nwb clean",
     "start": "nwb serve",
     "test": "nwb test",
-    "test:watch": "nwb test --server"
+    "test:watch": "nwb test --server",
+    "deploy": "gh-pages -d demo/dist"
   },
   "dependencies": {
     "hogan.js": "^3.0.2",
@@ -25,6 +26,7 @@
     "react": "0.14.x"
   },
   "devDependencies": {
+    "gh-pages": "^0.11.0",
     "nwb": "0.9.x",
     "react": "0.14.x",
     "react-codemirror": "^0.2.6",
