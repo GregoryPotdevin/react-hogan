@@ -1,23 +1,28 @@
 import expect from 'expect'
 import React from 'react'
-import {render, unmountComponentAtNode} from 'react-dom'
+import { renderToStaticMarkup } from 'react-dom/server'
 
-import Component from 'src/'
+import ReactHogan from 'src/'
 
-describe('Component', () => {
-  let node
+describe('ReactHogan', () => {
 
-  beforeEach(() => {
-    node = document.createElement('div')
+  it('renders a basic template', () => {
+    expect(renderToStaticMarkup(<ReactHogan template="Hello {{name}}" data={{name: 'Gregory'}}/>))
+      .toEqual('<div>Hello Gregory</div>')
   })
 
-  afterEach(() => {
-    unmountComponentAtNode(node)
+  it('renders html', () => {
+    expect(renderToStaticMarkup(<ReactHogan template="<h1>Hello {{name}}</h1>" data={{name: 'Ash'}}/>))
+      .toEqual('<div><h1>Hello Ash</h1></div>')
   })
 
-  it('displays a welcome message', () => {
-    render(<Component/>, node, () => {
-      expect(node.innerHTML).toContain('Welcome to React components')
-    })
+  it('handles the Component prop', () => {
+    expect(renderToStaticMarkup(<ReactHogan Component="span" template="Hello {{name}}" data={{name: 'Joseph'}}/>))
+      .toEqual('<span>Hello Joseph</span>')
+  })
+
+  it('passes other props', () => {
+    expect(renderToStaticMarkup(<ReactHogan style={{color: 'red'}} template="Hello {{name}}" data={{name: 'Ethan'}}/>))
+      .toEqual('<div style="color:red;">Hello Ethan</div>')
   })
 })
