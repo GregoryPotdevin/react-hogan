@@ -1,7 +1,7 @@
 {
   "name": "react-hogan",
-  "version": "1.0.0",
-  "description": "react-hogan React component",
+  "version": "0.1.0",
+  "description": "React component wrapping Hogan.js. Can be used to render client-provided templates.",
   "main": "lib/index.js",
   "jsnext:main": "es6/index.js",
   "files": [
