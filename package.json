@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "hogan.js": "^3.0.2",
-    "react-addons-shallow-compare": "^15.0.2"
+    "react-addons-shallow-compare": "0.14.x"
   },
   "peerDependencies": {
     "react": "0.14.x"
