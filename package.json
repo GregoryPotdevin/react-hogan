@@ -30,8 +30,8 @@
     "react-codemirror": "^0.2.6",
     "react-dom": "0.14.x"
   },
-  "author": "",
-  "homepage": "",
+  "author": "Gregory Potdevin",
+  "homepage": "http://www.appcraft.fr",
   "license": "MIT",
   "repository": "",
   "keywords": [
