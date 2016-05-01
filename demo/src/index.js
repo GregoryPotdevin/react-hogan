@@ -1,12 +1,35 @@
 import React from 'react'
 import {render} from 'react-dom'
 import Codemirror from 'react-codemirror'
-import 'codemirror/mode/twig/twig'
+import CodeMirror from 'codemirror'
+import 'codemirror/mode/htmlmixed/htmlmixed'
+import 'codemirror/mode/jsx/jsx'
+import 'codemirror/mode/javascript/javascript'
+import 'codemirror/addon/mode/overlay'
+
 import "codemirror/lib/codemirror.css"
 import '../styles/style.css'
 
 import ReactHogan from '../../src'
 import Hogan from 'hogan.js'
+
+CodeMirror.defineMode("mustache", function(config, parserConfig) {
+  var mustacheOverlay = {
+    token: function(stream, state) {
+      var ch;
+      if (stream.match("{{")) {
+        while ((ch = stream.next()) != null)
+          if (ch == "}" && stream.next() == "}") {
+            stream.eat("}");
+            return "mustache";
+          }
+      }
+      while (stream.next() != null && !stream.match("{{", false)) {}
+      return null;
+    }
+  };
+  return CodeMirror.overlayMode(CodeMirror.getMode(config, parserConfig.backdrop || "text/html"), mustacheOverlay);
+});
 
 const defaultTemplate =  
 `<h2>{{name}}</h2>
@@ -73,7 +96,7 @@ let Demo = React.createClass({
 			lineNumbers: true,
       lineWrapping: true,
 			readOnly: false,
-			mode: 'twig',
+			mode: 'mustache',
 		};
     return <div>
       <h2 style={{float: 'right'}}>
@@ -87,11 +110,18 @@ let Demo = React.createClass({
           {templateError && <pre className="error">{templateError}</pre>}
           
           <h3>Data</h3>
-          <Codemirror value={dataString} onChange={this.onChangeData} options={options} />
+          <Codemirror value={dataString} onChange={this.onChangeData} options={{...options, mode: 'javascript'}} />
           {dataError && <pre className="error">{dataError}</pre>}
         </div>
         <div style={{display: 'table-cell', padding: 8, width: '45%'}}>
           <h3>Result</h3>
+          <Codemirror value="<Hogan template={template} data={data} />" options={{
+            lineNumbers: false,
+            lineWrapping: true,
+            readOnly: true,
+            mode: 'jsx',
+          }} />
+          <br />
           <div className="result">
             <ReactHogan template={template} data={data}/>
           </div>
