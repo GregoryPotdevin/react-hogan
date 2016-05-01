@@ -20,16 +20,16 @@
   },
   "dependencies": {
     "hogan.js": "^3.0.2",
-    "react-addons-shallow-compare": "0.15.x"
+    "react-addons-shallow-compare": "^0.15.2"
   },
   "peerDependencies": {
-    "react": "0.15.x"
+    "react": "^0.15.2"
   },
   "devDependencies": {
     "gh-pages": "^0.11.0",
     "nwb": "0.9.x",
-    "react": "0.15.x",
-    "react-dom": "0.15.x",
+    "react": "^0.15.2",
+    "react-dom": "^0.15.2",
     "react-codemirror": "^0.2.6"
   },
   "author": "Gregory Potdevin",
