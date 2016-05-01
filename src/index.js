@@ -4,6 +4,8 @@ import shallowCompare from 'react-addons-shallow-compare'
 
 export default class ReactHogan extends React.Component {
   
+
+  
   shouldComponentUpdate(nextProps, nextState) {
     return shallowCompare(this, nextProps, nextState)
   }
@@ -19,13 +21,18 @@ export default class ReactHogan extends React.Component {
   }
   
   render() {
-    const { template, context, ...props } = this.props
+    const { template, data, Component, ...props } = this.props
     if (!template) return false
     
     const compiledTemplate = this.compileTemplate(template)
-    const __html = compiledTemplate.render(context)
+    const __html = compiledTemplate.render(data)
     return (
-      <div dangerouslySetInnerHTML={{__html}} {...props}/>
+      <Component dangerouslySetInnerHTML={{__html}} {...props}/>
     )
   }
+}
+
+ReactHogan.defaultProps = {
+  data: {},
+  Component: 'div'
 }

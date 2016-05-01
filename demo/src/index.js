@@ -24,13 +24,13 @@ const defaultTemplate =
   {{/props}}
 </table>`
 
-const defaultContext = {
+const defaultData = {
 	name: "React Hogan",
   description: "React component wrapping Hogan.js. Can be used to render client-provided templates.",
   author: "Gregory Potdevin",
   props: [
     {name: "template", description: "Mustache template"},
-    {name: "context", description: "Values to inject"}
+    {name: "data", description: "Values to inject"}
   ]
 }
 
@@ -41,9 +41,9 @@ let Demo = React.createClass({
       templateString: defaultTemplate,
       template: defaultTemplate,
       templateError: null,
-      contextString: JSON.stringify(defaultContext, null, 2),
-      context: defaultContext,
-      contextError: null
+      dataString: JSON.stringify(defaultData, null, 2),
+      data: defaultData,
+      dataError: null
     }
   },
   
@@ -57,18 +57,18 @@ let Demo = React.createClass({
     }
   },
   
-  onChangeContext(contextString){
+  onChangeData(dataString){
     try {
-      const context = JSON.parse(contextString)
-      this.setState({contextString, context, contextError: null})
+      const data = JSON.parse(dataString)
+      this.setState({dataString, data, dataError: null})
     } catch(err){
       console.log('err', err)
-      this.setState({contextString, contextError: err.message})
+      this.setState({dataString, dataError: err.message})
     }
   },
   
   render() {
-    const { template, templateString, templateError, context, contextString, contextError } = this.state
+    const { template, templateString, templateError, data, dataString, dataError } = this.state
     const options = {
 			lineNumbers: true,
       lineWrapping: true,
@@ -77,7 +77,7 @@ let Demo = React.createClass({
 		};
     return <div>
       <h2 style={{float: 'right'}}>
-        <a href="http://github.com/gregoryPotdevin/react-hogan">View project on GitHub</a>
+        <a href="http://github.com/gregoryPotdevin/react-hogan">View on GitHub</a>
       </h2>
       <h1>React Hogan</h1>
       <div style={{display: 'table', tableLayout: 'fixed', width: '100%'}}>
@@ -86,19 +86,19 @@ let Demo = React.createClass({
           <Codemirror value={templateString} onChange={this.onChangeTemplate} options={options} />
           {templateError && <pre className="error">{templateError}</pre>}
           
-          <h3>Context</h3>
-          <Codemirror value={contextString} onChange={this.onChangeContext} options={options} />
-          {contextError && <pre className="error">{contextError}</pre>}
+          <h3>Data</h3>
+          <Codemirror value={dataString} onChange={this.onChangeData} options={options} />
+          {dataError && <pre className="error">{dataError}</pre>}
         </div>
         <div style={{display: 'table-cell', padding: 8, width: '45%'}}>
           <h3>Result</h3>
           <div className="result">
-            <ReactHogan template={template} context={context}/>
+            <ReactHogan template={template} data={data}/>
           </div>
         </div>
       </div>
       <hr />
-      <div className="copyright">Copyright © Gregory Potdevin, <a href="http://www.appcraft.fr/" target="__blank">Appcraft</a>, 2016. MIT Licensed.</div>
+      <div className="copyright">Copyright © Gregory Potdevin, <a href="http://www.appcraft.fr/" target="__blank">AppCraft.fr</a>, 2016. MIT Licensed.</div>
     </div>
   }
 })
