@@ -34,11 +34,11 @@ It may seem weird and redundant to want to use a templating engine with React. I
 ## Usage 
 
 ```
-import ReactHogan from 'react-hogan'
+import Hogan from 'react-hogan'
 ```
 
 ```
-<ReactHogan template="Hello {{name}}" context={{name: 'Gregory'}} />
+<Hogan template="Hello {{name}}" context={{name: 'Gregory'}} />
 ```
 
 ## Props
