@@ -1,0 +1,67 @@
+body {
+	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	color: #333;
+}
+
+h1 {
+  color: #222;
+}
+
+h1, h2, h3 {
+  font-weight: 300;
+}
+
+h1, h2 {
+  margin: 8px 0;
+}
+
+a {
+	text-decoration: none;
+	color: #2196F3;
+}
+
+label {
+  display: inline-block;
+  width: 100px;
+  width: 100px;
+  margin-bottom: 8px;
+}
+
+pre.error {
+  color: red;
+}
+
+.result {
+	border: 1px solid #ccc;
+  padding: 8px;
+  background-color: #f7f7f7;
+}
+
+#demo {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 900px;
+	padding: 1em;
+}
+
+table {
+  border: 1px solid #CCC; 
+  width: 100%;
+  table-layout: fixed;
+}
+
+td {
+  padding: 6px;
+}
+
+.ReactCodeMirror {
+	border: 1px solid #ccc;
+}
+
+.ReactCodeMirror .CodeMirror {
+  height: auto;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
