@@ -47,6 +47,10 @@ import ReactHogan from 'react-hogan'
 - `context`, JS object to inject in the template
 - `Component`, component to use for the rendering (defaults to `div`)
 
+## Example
+
+Demo site with interactive example : http://gregorypotdevin.github.io/react-hogan/
+
 ## License
 
 MIT
