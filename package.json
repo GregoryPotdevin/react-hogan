@@ -32,14 +32,26 @@
     "react-dom": "^15.0.2",
     "react-codemirror": "^0.2.6"
   },
-  "author": "Gregory Potdevin",
+  "authors": [
+    {
+      "name": "Gregory Potdeviny",
+      "email": "gregory@appcraft.fr"
+    }
+  ],
   "homepage": "http://gregorypotdevin.github.io/react-hogan/",
+  "bugs": {
+    "url": "https://github.com/GregoryPotdevin/react-hogan/issues"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/GregoryPotdevin/react-hogan.git"
+    "url": "https://github.com/GregoryPotdevin/react-hogan.git"
   },
   "keywords": [
-    "react-component"
+    "react",
+    "react-component",
+    "hogan", "hogan.js",
+    "mustache",
+    "template"
   ]
 }
